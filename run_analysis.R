@@ -33,7 +33,7 @@ saveRDS(merged_data, file = "merged_data.RDS")
 ## Read in the data indicating column names for V3:V563
 column_names <- read.table("UCI HAR Dataset/features.txt", header = FALSE, sep = "\t")
 colnames(merged_data)[3:563]<-column_names$V1
-## Assign column names to the first to variables
+## Assign column names to the first two variables
 colnames(merged_data)[1]<-"Subject_ID"
 colnames(merged_data)[2]<-"Activity_Name"
 ## Clear/remove all objects except merged_data from the global environment to keep things more clean in here
@@ -82,3 +82,5 @@ main_data <- mutate(main_data, across(3:68, as.numeric))
 new_dataset <- main_data %>%
   group_by(Subject_ID, Activity_Name) %>%
   summarise(across(everything(), mean))
+## Save small data so I don't need to reload everything if I have to stop and come back 
+saveRDS(new_dataset, file = "new_dataset.RDS")
