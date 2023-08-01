@@ -1,0 +1,1 @@
+Please refer to the directory "UCI HAR Datast" I included for the original descripton of the variable names in columns 3:68 in the main data. The first two columns are "Subject_ID" and"Activity_Name". In the smaller "new_dataset", the each column is the average over the subject and activity for the relevant variable.
